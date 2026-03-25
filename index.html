@@ -64,7 +64,7 @@
   .day-col { position: relative; }
   .cell { border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); height: 40px; cursor: crosshair; transition: background 0.08s; }
   .cell:hover { background: var(--bg-secondary); }
-  .event-block { position: absolute; left: 2px; right: 2px; border-radius: 4px; padding: 2px 5px; font-size: 11px; overflow: hidden; z-index: 5; line-height: 1.4; pointer-events: all; }
+  .event-block { position: absolute; left: 2px; right: 2px; border-radius: 4px; padding: 2px 5px; font-size: 11px; overflow: hidden; z-index: 5; line-height: 1.4; }
   .event-block.gcal { background: var(--gcal-bg); color: var(--gcal-text); }
   .event-block.block { background: var(--block-bg); color: var(--block-text); display: flex; justify-content: space-between; align-items: flex-start; }
   .block-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
@@ -227,8 +227,7 @@ function renderGrid() {
       cell.className = 'cell';
       cell.dataset.di = di;
       cell.dataset.slot = s;
-      cell.style.cssText = `grid-column:${di+2};grid-row:${s+2};`;
-      cell.addEventListener('mousedown', onMouseDown);
+col.style.cssText = `grid-column:${di+2};grid-row:2/${slots+2};position:relative;pointer-events:none;`;      cell.addEventListener('mousedown', onMouseDown);
       cell.addEventListener('mouseenter', onMouseEnter);
       grid.appendChild(cell);
     });
